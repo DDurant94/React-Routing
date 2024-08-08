@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-
+// will need to change this for searching Comics
+// NOT USED!!!!!!!
 const ComicForm = () => {
   const [name, setName] = useState('');
 

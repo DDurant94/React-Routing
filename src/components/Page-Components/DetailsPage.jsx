@@ -1,27 +1,33 @@
 import { useEffect,useState } from "react";
-import { number,func } from 'prop-types';
+import { number } from 'prop-types';
 import axios from "axios";
+import { NavLink } from "react-router-dom";
 
-const CharacterDetails = ({selectedCharacter, onClosePage}) => {
+const CharacterDetails = ({params}) => {
   const [characterData, setCharacterData] = useState([]);
   const [gettingData,setGettingData] = useState(true);
  
   useEffect(() => {
       const CharacterSearch = async () => {
+        const id = params.id;
+
         try{
-          if(selectedCharacter){
-            const response = await axios.get(`https://gateway.marvel.com/v1/public/characters/${selectedCharacter}?ts=1721929446898&apikey=6ff4859c9f07b04770921cd2eae2b91c&hash=7e91063979f9c9e893ef49c91351f283`);
+          if(id){
+            const response = await axios.get(`https://gateway.marvel.com/v1/public/characters/${id}?ts=1721929446898&apikey=6ff4859c9f07b04770921cd2eae2b91c&hash=7e91063979f9c9e893ef49c91351f283`);
             setCharacterData(response.data.data.results);
             setGettingData(false);
           }
   
         }catch(error){
           console.log("Error fetching data from API:",error)
-          onClosePage()
+          return (
+          <div>
+            <p>{`Error fetching data from API: ${error}`}</p>
+          </div>);
         }
       };
       CharacterSearch()
-  },[selectedCharacter]);
+  },[params]);
 
   if(gettingData) return <p className="text-center fs-1 text-dark-emphasis">Loading...</p>;
   
@@ -59,7 +65,7 @@ const CharacterDetails = ({selectedCharacter, onClosePage}) => {
 
           <ul>
 
-            {characterData[0].comics.items.length === 0 ? <li className="rounded">No Comics</li> : characterData[0].comics.items.map((item, i=0) => <li className="rounded" key={i++}>{item.name}</li>)}
+            {characterData[0].comics.items.length === 0 ? <li className="rounded ">No Comics</li> : characterData[0].comics.items.map((item, i=0) => <li className="rounded" key={i++}>{item.name}</li>)}
 
           </ul>
 
@@ -105,16 +111,15 @@ const CharacterDetails = ({selectedCharacter, onClosePage}) => {
 
       </div>
 
-      <button className="btn btn-danger my-4" onClick={() => onClosePage()}>Close Details</button>
-
+      {<NavLink to='/CharacterLibrary'><button className="btn btn-danger my-4" >Close Details</button></NavLink>}
+      
     </section>
   );
 
 };
 
 CharacterDetails.propType = {
-  selectedCharacter: number,
-  onClosePage: func
+  params: number
 }
 
 export default CharacterDetails;

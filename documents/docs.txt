@@ -1,8 +1,33 @@
-Details/About:
+About:
+  The React Marvel API Webpage is a modular webpage that dynamically displays Marvel characters. Upon loading the webpage, the user is 
+  presented with a list of Marvel characters to choose from. The user can click on the image of a character to see all the details of that 
+  specific character. The user is also presented with loading screens and error messages to indicate if the API call was unsuccessful. 
+  React allows for a modular design, making the code easy to maintain and diagnose problems. By using useEffect, not everything needs to be 
+  rendered every time something changes; rendering occurs only when the user triggers a change. This approach makes the application very 
+  dynamic and user-friendly.
+
+Details:
+  This repository is very similar to my ‘React-Components-Events-and-Forms’ project. The main difference is that I have integrated more 
+  functionality, specifically using links with ‘react-dom’ to provide a more seamless experience. With ‘react-dom’, we can set the page paths 
+  between our different components while retaining the information of what has already been rendered. This reduces the amount of rendering 
+  needed, only triggering a refresh when a page is refreshed or a change within that page occurs. Additionally, this can be used for 
+  authentication, allowing access only when certain requirements are met.
 
 Extensions:
+  Bootstrap 4, Font awesome 4, Font Awesome 5 Free & Pro snippets
+  Bootstrap 5 Quick Snippets
+  Prettier Code-formatter
+  Simple React Snippets
+  ES7+ React/Redux/React-Native snippets
 
 Dependencies:
+  axios: ^1.7.3
+  bootstrap: ^5.3.3
+  prop-types: ^15.8.1
+  react: "^18.3.1
+  react-bootstrap: 2.10.4
+  react-dom: ^18.3.1
+  react-router-dom: ^6.26.0
 
 
 Assignment Questions:
@@ -51,8 +76,6 @@ Assignment Questions:
 
   The application should have a basic routing setup with Home, BrowseCharacters, CharacterDetails, and Comics accessible via different paths.
   Navigating to these paths should display the corresponding component
-
-
 
 
   2. Enhancing Comic Book Library with Advanced Routing
