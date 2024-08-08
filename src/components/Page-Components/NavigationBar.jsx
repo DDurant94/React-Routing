@@ -5,21 +5,21 @@ import Navbar from 'react-bootstrap/Navbar';
 
 function NavigationBar(){
   return (
-    <Navbar expand="sm" className="bg-body-tertiary">
+    <Navbar expand="sm" bg="tertiary">
 
       <Container className="m-0">
 
-        <Link to='/Home' className="nav-link px-2" id="nav-links">Home</Link>
+        <Nav.Link to='/Home' className="nav-link px-2" id="nav-links" as={Link} activeclassname="active">Home</Nav.Link>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
         <Navbar.Collapse id="basic-navbar-nav">
 
-          <Nav className="">
+          <Nav className="mr-auto">
 
-            <NavLink to='/CharacterLibrary' className="nav-link px-2" id="nav-links">Character Library</NavLink>
+            <Nav.Link to='/CharacterLibrary' className="nav-link px-2" id="nav-links" as={NavLink} activeclassname="active">Character Library</Nav.Link>
 
-            <Link to='/Comics' className="nav-link px-2" id="nav-links">Comics</Link>
+            <Nav.Link to='/Comics' className="nav-link px-2" id="nav-links" as={Link} activeclassname="active">Comics</Nav.Link>
 
           </Nav>
 

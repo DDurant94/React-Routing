@@ -7,6 +7,7 @@ import CharacterWrapper from "./components/Page-Components/BrowseCharacterWrappe
 import CharacterList from "./components/Page-Components/BrowseCharactersPage";
 import Comics from "./components/Page-Components/ComicsPage";
 import NavigationBar from './components/Page-Components/NavigationBar';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
